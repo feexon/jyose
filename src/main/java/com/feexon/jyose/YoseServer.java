@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
 import static java.lang.Integer.parseInt;
@@ -25,7 +26,9 @@ public class YoseServer {
             public void handle(HttpExchange exchange) throws IOException {
                 exchange.getResponseHeaders().add("Content-Type", "text/html");
                 exchange.sendResponseHeaders(200, 0);
-                exchange.getResponseBody().write("Hello Yose".getBytes());
+                OutputStream out = exchange.getResponseBody();
+                out.write("Hello Yose".getBytes());
+                out.close();
                 exchange.close();
             }
         });

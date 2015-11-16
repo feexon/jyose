@@ -25,13 +25,15 @@ public class HomePage {
     }
 
     public void containing(String text) throws IOException {
+        assertThat(body(), containsString(text));
+    }
+
+    private String body() throws IOException {
         InputStream in = connection.getInputStream();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        for (int b = -1; (b = in.read()) != -1; ) {
+        for (int b; (b = in.read()) != -1; ) {
             out.write(b);
         }
-        String body = out.toString();
-
-        assertThat(body, containsString(text));
+        return out.toString();
     }
 }
