@@ -1,5 +1,7 @@
 package com.feexon.jyose;
 
+import com.feexon.jyose.ApplicationRunner;
+import com.feexon.jyose.pages.PingPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,18 +9,7 @@ import org.junit.Test;
 /**
  * Created by L.x on 15-11-16.
  */
-public class PingChallege {
-    ApplicationRunner application = new ApplicationRunner();
-
-    @Before
-    public void startApplication() throws Exception {
-        application.start();
-    }
-
-    @After
-    public void stopApplication() throws Exception {
-        application.close();
-    }
+public class PingChallege extends YoseChallege {
 
     @Test
     public void renderAsJSONResponse() throws Exception {

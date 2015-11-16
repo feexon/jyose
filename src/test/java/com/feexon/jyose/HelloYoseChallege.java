@@ -1,25 +1,12 @@
 package com.feexon.jyose;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
+import com.feexon.jyose.pages.HomePage;
 import org.junit.Test;
 
 /**
  * Created by L.x on 15-11-16.
  */
-public class HelloYoseChallege {
-    ApplicationRunner application = new ApplicationRunner();
-
-    @Before
-    public void startApplication() throws Exception {
-        application.start();
-    }
-
-    @After
-    public void stopApplication() throws Exception {
-        application.close();
-    }
+public class HelloYoseChallege extends YoseChallege {
 
     @Test
     public void renderAsHtmlPage() throws Exception {
@@ -30,6 +17,6 @@ public class HelloYoseChallege {
     @Test
     public void containingTextHelloYose() throws Exception {
         HomePage page = application.goHome();
-        page.containing("Hello Yose");
+        page.containingText("Hello Yose");
     }
 }
