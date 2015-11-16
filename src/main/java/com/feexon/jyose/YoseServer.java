@@ -24,11 +24,20 @@ public class YoseServer {
         server.createContext("/", new HttpHandler() {
             @Override
             public void handle(HttpExchange exchange) throws IOException {
-                exchange.getResponseHeaders().add("Content-Type", "text/html");
-                exchange.sendResponseHeaders(200, 0);
-                OutputStream out = exchange.getResponseBody();
-                out.write("Hello Yose".getBytes());
-                out.close();
+                String path = exchange.getRequestURI().getPath();
+                if (path.equals("/ping")) {
+                    exchange.getResponseHeaders().add("Content-Type", "application/json");
+                    exchange.sendResponseHeaders(200, 0);
+                    OutputStream out = exchange.getResponseBody();
+                    out.write("{\"alive\":true}".getBytes());
+                    out.close();
+                } else {
+                    exchange.getResponseHeaders().add("Content-Type", "text/html");
+                    exchange.sendResponseHeaders(200, 0);
+                    OutputStream out = exchange.getResponseBody();
+                    out.write("Hello Yose".getBytes());
+                    out.close();
+                }
                 exchange.close();
             }
         });

@@ -26,6 +26,10 @@ public class ApplicationRunner {
         return new HomePage(connect("http://localhost:" + serverPort));
     }
 
+    public PingPage ping() throws IOException {
+        return new PingPage(connect("http://localhost:" + serverPort + "/ping"));
+    }
+
     private HttpURLConnection connect(String url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setConnectTimeout(MILLIS_TIMEOUT);

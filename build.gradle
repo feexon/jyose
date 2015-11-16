@@ -4,7 +4,7 @@ version '1.0'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
-mainClassName='com.feexon.jyose.YoseServer'
+mainClassName = 'com.feexon.jyose.YoseServer'
 sourceCompatibility = 1.5
 
 repositories {
@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:4.11'
+    testCompile 'com.jayway.jsonpath:json-path-assert:2.0.0'
 }
 
 
