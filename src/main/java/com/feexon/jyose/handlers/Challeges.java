@@ -14,14 +14,14 @@ import static com.feexon.jyose.actions.Actions.withText;
 public class Challeges {
 
     public static RequestHandler ping() {
-        return renderAs(APPLICATION_JSON, withResource("/com/feexon/yose/html/ping.json"));
+        return renderAs(APPLICATION_JSON, withResource("/com/feexon/jyose/ping.json"));
     }
 
     public static RequestHandler helloYose() {
-        return renderAs(TEXT_HTML, withResource("/com/feexon/yose/html/index.html"));
+        return renderAs(TEXT_HTML, withResource("/com/feexon/jyose/index.html"));
     }
 
-    private static RequestHandler renderAs(String contentType, RenderingAction action) {
+    public static RequestHandler renderAs(String contentType, RenderingAction action) {
         return new DefaultHandler(contentType, action);
     }
 }
