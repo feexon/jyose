@@ -17,6 +17,8 @@ dependencies {
     testCompile 'com.jayway.jsonpath:json-path-assert:2.0.0'
     testCompile 'org.jmock:jmock-junit4:2.6.0-RC2'
     testCompile 'org.jmock:jmock-legacy:2.6.0-RC2'
+    testCompile 'org.testinfected.hamcrest-matchers:dom-matchers:1.6'
+    testCompile 'net.sourceforge.nekohtml:nekohtml:1.9.15'
 }
 
 

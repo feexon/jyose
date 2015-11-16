@@ -18,7 +18,7 @@ public class PingPage extends Page{
     }
 
     public void hasAttribute(String name, boolean value) throws IOException {
-        JsonAssert.with(body()).assertThat(name, equalTo(value));
+        JsonAssert.with(asText()).assertThat(name, equalTo(value));
     }
 
 }

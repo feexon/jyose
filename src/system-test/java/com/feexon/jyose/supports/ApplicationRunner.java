@@ -15,7 +15,6 @@ import static java.lang.String.format;
  */
 public class ApplicationRunner {
 
-    public static final int MILLIS_TIMEOUT = 3000;
     public static final String URL_FORMAT = "http://localhost:%d/%s";
     private YoseServer server;
 
@@ -37,11 +36,7 @@ public class ApplicationRunner {
     }
 
     private HttpURLConnection connect(String path) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(url(path)).openConnection();
-        connection.setConnectTimeout(MILLIS_TIMEOUT);
-        connection.setReadTimeout(MILLIS_TIMEOUT);
-        connection.connect();
-        return connection;
+        return Network.openConnection(new URL(url(path)));
     }
 
     private String url(String path) {
