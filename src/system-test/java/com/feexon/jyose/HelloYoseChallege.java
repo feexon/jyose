@@ -1,6 +1,8 @@
 package com.feexon.jyose;
 
 import com.feexon.jyose.pages.HomePage;
+import com.feexon.jyose.pages.RepositoryPage;
+import org.junit.Before;
 import org.junit.Test;
 
 import static com.feexon.jyose.MediaTypes.TEXT_HTML;
@@ -12,24 +14,27 @@ import static org.testinfected.hamcrest.dom.DomMatchers.hasText;
  */
 public class HelloYoseChallege extends YoseChallege {
 
+    private HomePage page;
+
+    @Before
+    public void setUp() throws Exception {
+        page = application.goHome();
+    }
+
     @Test
     public void renderAsHtmlPage() throws Exception {
-        HomePage page = application.goHome();
         page.renderAs(TEXT_HTML);
     }
 
     @Test
     public void containingTextHelloYose() throws Exception {
-        HomePage page = application.goHome();
         page.containingText("Hello Yose");
     }
 
     @Test
     public void containingRepositoryLinkThatHasReadMeElementContainsTheTextWithYoseTheGame() throws Exception {
-        HomePage page = application.goHome();
-
         page.hasRepositoryLink();
-        page.gotoRepositoryPage().hasElement("#readme", hasText(containsString("YoseTheGame")));
+        page.gotoRepositoryPage().hasReadMeElement(containsString("YoseTheGame"));
     }
 
 }

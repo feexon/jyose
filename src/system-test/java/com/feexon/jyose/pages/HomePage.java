@@ -33,8 +33,8 @@ public class HomePage extends Page {
         hasElement(REPOSITORY_LINK_ID);
     }
 
-    public Page gotoRepositoryPage() throws IOException {
+    public RepositoryPage gotoRepositoryPage() throws IOException {
         String location = Selector.from(asHtml()).select(REPOSITORY_LINK_ID).iterator().next().getAttribute("href");
-        return new Page(openConnection(new URL(location)));
+        return new RepositoryPage(openConnection(new URL(location)));
     }
 }
