@@ -1,14 +1,14 @@
 package com.feexon.jyose;
 
-import com.feexon.jyose.HttpRequest;
-import com.feexon.jyose.HttpResponse;
-import com.feexon.jyose.RequestHandler;
-import com.feexon.jyose.Router;
 import org.jmock.Expectations;
 import org.jmock.auto.Mock;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
 import org.junit.Test;
+
+import java.io.FileNotFoundException;
+
+import static com.feexon.jyose.HttpResponse.SC_FILE_NOT_FOUND;
 
 /**
  * Created by L.x on 15-11-16.
@@ -57,7 +57,26 @@ public class RouterTest {
         requestUri("/404");
 
         context.checking(new Expectations() {{
-            oneOf(response).setStatus(404);
+            oneOf(response).setStatus(SC_FILE_NOT_FOUND);
+            allowing(response);
+        }});
+
+        router.dispatch(request, response);
+    }
+
+
+    @Test
+    public void send404IfFileNotFound() throws Exception {
+        router.setUnknownHandler(handler);
+        requestUri("/fileNotFound");
+        context.checking(new Expectations() {{
+            allowing(handler).handle(request, response);
+            will(throwException(new FileNotFoundException()));
+        }});
+
+        context.checking(new Expectations() {{
+            oneOf(response).setStatus(SC_FILE_NOT_FOUND);
+            allowing(response);
         }});
 
         router.dispatch(request, response);

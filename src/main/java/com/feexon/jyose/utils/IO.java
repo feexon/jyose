@@ -1,9 +1,7 @@
 package com.feexon.jyose.utils;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.net.URL;
 
 /**
  * Created by L.x on 15-11-16.
@@ -19,6 +17,21 @@ public class IO {
             } catch (IOException ignored) {
             }
         }
+    }
+
+    public static String toString(URL url) throws IOException {
+        InputStream in = url.openStream();
+        try {
+            return toString(in);
+        } finally {
+            close(in);
+        }
+    }
+
+    public static String toString(InputStream in) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        copy(in, out);
+        return out.toString();
     }
 
     public static void copy(InputStream in, OutputStream out) throws IOException {

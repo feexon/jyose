@@ -3,7 +3,7 @@ package com.feexon.jyose;
 import com.feexon.jyose.pages.PingPage;
 import org.junit.Test;
 
-import static com.feexon.jyose.MediaTypes.APPLICATION_JSON;
+import static com.feexon.jyose.MimeTypes.APPLICATION_JSON;
 
 /**
  * Created by L.x on 15-11-16.

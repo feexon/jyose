@@ -1,11 +1,10 @@
 package com.feexon.jyose;
 
 import com.feexon.jyose.pages.HomePage;
-import com.feexon.jyose.pages.RepositoryPage;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.feexon.jyose.MediaTypes.TEXT_HTML;
+import static com.feexon.jyose.MimeTypes.TEXT_HTML;
 import static org.hamcrest.Matchers.containsString;
 import static org.testinfected.hamcrest.dom.DomMatchers.hasText;
 

@@ -1,6 +1,5 @@
 package com.feexon.jyose.pages;
 
-import com.feexon.jyose.MediaTypes;
 import com.feexon.jyose.utils.IO;
 import org.cyberneko.html.parsers.DOMParser;
 import org.hamcrest.Matcher;
@@ -14,8 +13,6 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 
-import static com.feexon.jyose.MediaTypes.APPLICATION_JSON;
-import static com.feexon.jyose.MediaTypes.TEXT_HTML;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.testinfected.hamcrest.dom.DomMatchers.hasUniqueSelector;
