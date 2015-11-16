@@ -4,7 +4,7 @@ version '1.0'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
-mainClassName = 'com.feexon.jyose.YoseServer'
+mainClassName = 'com.feexon.jyose.SunYoseServer'
 sourceCompatibility = 1.5
 
 repositories {

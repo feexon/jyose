@@ -1,5 +1,6 @@
 package com.feexon.jyose;
 
+import com.feexon.jyose.supports.ApplicationRunner;
 import org.junit.After;
 import org.junit.Before;
 

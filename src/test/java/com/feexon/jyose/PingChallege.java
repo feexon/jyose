@@ -1,9 +1,6 @@
 package com.feexon.jyose;
 
-import com.feexon.jyose.ApplicationRunner;
 import com.feexon.jyose.pages.PingPage;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**

@@ -1,5 +1,6 @@
-package com.feexon.jyose;
+package com.feexon.jyose.supports;
 
+import com.feexon.jyose.YoseServer;
 import com.feexon.jyose.pages.HomePage;
 import com.feexon.jyose.pages.PingPage;
 
@@ -15,12 +16,11 @@ import static java.lang.String.format;
 public class ApplicationRunner {
 
     public static final int MILLIS_TIMEOUT = 1000;
-    private static final int serverPort = 1915;
     public static final String URL_FORMAT = "http://localhost:%d/%s";
     private YoseServer server;
 
     public void start() throws IOException {
-        server = new YoseServer(serverPort);
+        server = LifecycleYoseServer.instance();
         server.start();
     }
 
@@ -45,7 +45,7 @@ public class ApplicationRunner {
     }
 
     private String url(String path) {
-        return format(URL_FORMAT, serverPort, path(path));
+        return format(URL_FORMAT, server.serverPort(), path(path));
     }
 
     private String path(String path) {
