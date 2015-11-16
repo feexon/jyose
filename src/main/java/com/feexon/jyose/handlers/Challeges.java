@@ -1,11 +1,11 @@
 package com.feexon.jyose.handlers;
 
-import com.feexon.jyose.MediaTypes;
 import com.feexon.jyose.RenderingAction;
 import com.feexon.jyose.RequestHandler;
 
 import static com.feexon.jyose.MediaTypes.APPLICATION_JSON;
 import static com.feexon.jyose.MediaTypes.TEXT_HTML;
+import static com.feexon.jyose.actions.Actions.withResource;
 import static com.feexon.jyose.actions.Actions.withText;
 
 /**
@@ -14,11 +14,11 @@ import static com.feexon.jyose.actions.Actions.withText;
 public class Challeges {
 
     public static RequestHandler ping() {
-        return renderAs(APPLICATION_JSON, withText("{\"alive\":true}"));
+        return renderAs(APPLICATION_JSON, withResource("/com/feexon/yose/html/ping.json"));
     }
 
     public static RequestHandler helloYose() {
-        return renderAs(TEXT_HTML, withText("Hello Yose"));
+        return renderAs(TEXT_HTML, withResource("/com/feexon/yose/html/index.html"));
     }
 
     private static RequestHandler renderAs(String contentType, RenderingAction action) {
