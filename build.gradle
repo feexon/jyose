@@ -2,13 +2,21 @@ group 'com.feexon'
 version '1.0'
 
 apply plugin: 'java'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.5
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'junit:junit:4.11'
+}
+
+idea {
+    module {
+        excludeDirs += [file('.idea'), file('gradle'), file('.gradle')]
+    }
 }
