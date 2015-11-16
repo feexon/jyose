@@ -1,5 +1,6 @@
 package com.feexon.jyose.pages;
 
+import com.feexon.jyose.MediaTypes;
 import org.hamcrest.Matcher;
 
 import java.io.ByteArrayOutputStream;
@@ -7,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 
+import static com.feexon.jyose.MediaTypes.APPLICATION_JSON;
+import static com.feexon.jyose.MediaTypes.TEXT_HTML;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -14,8 +17,6 @@ import static org.junit.Assert.assertThat;
  * Created by L.x on 15-11-16.
  */
 public class Page {
-    public static final String TEXT_HTML = "text/html";
-    public static final String APPLICATION_JSON = "application/json";
     protected HttpURLConnection connection;
 
     public Page(HttpURLConnection connection) {

@@ -1,10 +1,9 @@
 package com.feexon.jyose;
 
 import com.feexon.jyose.pages.HomePage;
-import com.feexon.jyose.pages.Page;
 import org.junit.Test;
 
-import static com.feexon.jyose.pages.Page.TEXT_HTML;
+import static com.feexon.jyose.MediaTypes.TEXT_HTML;
 
 /**
  * Created by L.x on 15-11-16.

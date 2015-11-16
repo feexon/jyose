@@ -1,7 +1,7 @@
 package com.feexon.jyose.supports;
 
 import com.feexon.jyose.YoseServer;
-import com.feexon.jyose.SunYoseServer;
+import com.feexon.jyose.sun.SunYoseServer;
 
 import java.io.IOException;
 

@@ -15,7 +15,7 @@ import static java.lang.String.format;
  */
 public class ApplicationRunner {
 
-    public static final int MILLIS_TIMEOUT = 1000;
+    public static final int MILLIS_TIMEOUT = 3000;
     public static final String URL_FORMAT = "http://localhost:%d/%s";
     private YoseServer server;
 
