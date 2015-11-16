@@ -15,6 +15,7 @@ sourceSets.test.java.srcDirs += file('src/system-test/java')
 dependencies {
     testCompile 'junit:junit:4.11'
     testCompile 'com.jayway.jsonpath:json-path-assert:2.0.0'
+    testCompile 'org.jmock:jmock-legacy:2.6.0-RC2'
 }
 
 
