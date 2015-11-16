@@ -28,7 +28,7 @@ public class HelloYoseChallege {
     }
 
     @Test
-    public void pageContainingHelloYose() throws Exception {
+    public void containingTextHelloYose() throws Exception {
         HomePage page = application.goHome();
         page.containing("Hello Yose");
     }
