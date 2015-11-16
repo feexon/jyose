@@ -16,10 +16,6 @@ public class HomePage extends Page {
         super(connection);
     }
 
-    public void renderAsHtml() {
-        assertContentType(equalTo(TEXT_HTML));
-    }
-
 
     public void containingText(String text) throws IOException {
         assertThat(body(), containsString(text));

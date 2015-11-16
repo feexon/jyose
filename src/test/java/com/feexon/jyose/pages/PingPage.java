@@ -17,10 +17,6 @@ public class PingPage extends Page{
         super(connection);
     }
 
-    public void renderAsJSON() {
-        assertContentType(equalTo(APPLICATION_JSON));
-    }
-
     public void hasAttribute(String name, boolean value) throws IOException {
         JsonAssert.with(body()).assertThat(name, equalTo(value));
     }

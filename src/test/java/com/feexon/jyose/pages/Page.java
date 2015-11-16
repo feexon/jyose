@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -30,7 +31,11 @@ public class Page {
         return out.toString();
     }
 
-    protected void assertContentType(Matcher<String> matcher) {
+    public void renderAs(Matcher<String> matcher) {
         assertThat(connection.getContentType(), matcher);
+    }
+
+    public void renderAs(String contentType) {
+        renderAs(equalTo(contentType));
     }
 }
